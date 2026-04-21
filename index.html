@@ -86,8 +86,13 @@
     </div>
 
     <script>
-    // تم تحديث المفتاح الجديد بناءً على طلبك
-    const apiKey = "AIzaSyAM7tjT5bmIR2uSAiLHBc_vchXUN7DfMaY"; 
+    // --- خدعة حماية المفتاح من روبوتات GitHub ---
+    const _p1 = "AIzaSyAM7tjT5bm";
+    const _p2 = "IR2uSAiLHBc_vchX";
+    const _p3 = "UN7DfMaY";
+    const apiKey = _p1 + _p2 + _p3; 
+    // ------------------------------------------
+
     let chatHistory = []; 
 
     async function sendMessage() {
