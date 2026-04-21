@@ -86,8 +86,8 @@
     </div>
 
     <script>
-    // تم وضع المفتاح الجديد هنا
-    const apiKey = "AIzaSyDsHWPQ3CsrfnT06Wwz7obMJA2LpopKhvs"; 
+    // تم تحديث المفتاح الجديد بناءً على طلبك
+    const apiKey = "AIzaSyAM7tjT5bmIR2uSAiLHBc_vchXUN7DfMaY"; 
     let chatHistory = []; 
 
     async function sendMessage() {
@@ -120,19 +120,19 @@
                 const botResponse = data.candidates[0].content.parts[0].text;
                 addMessage(botResponse, 'bot-msg');
             } else {
-                console.error("خطأ في استجابة الـ API:", data);
+                console.error("API Error Details:", data);
                 throw new Error();
             }
         } catch (error) {
             if (document.getElementById(loadingId)) document.getElementById(loadingId).remove();
-            addMessage("عذراً، حدث خطأ في الاتصال. تأكد من أن مفتاح الـ API مفعّل وصحيح.", 'bot-msg');
+            addMessage("عذراً، حدث خطأ في الاتصال. تأكد من أن مفتاح الـ API مفعّل ولم يتم حظره أمنياً.", 'bot-msg');
         }
     }
 
     function addMessage(text, className, id = '') {
         const box = document.getElementById('chat-box');
         const div = document.createElement('div');
-        div.className = `message ${className}`; 
+        div.className = `message ${className} ${id && id.startsWith('loading') ? 'loading-dots' : ''}`; 
         if (id) div.id = id;
         div.innerText = text;
         box.appendChild(div);
